@@ -25,4 +25,4 @@ fra_region %>%
   geom_line() + 
   labs(x = "Year", y = "% change in natural forest cover / year") +
   scale_color_brewer(name = "Continent", palette = "Set1")
-ggsave('figures/forest-change.png')
+ggsave('forest-change.png')
