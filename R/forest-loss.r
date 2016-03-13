@@ -16,6 +16,7 @@ fra_region <- fra %>%
          nat_change = 100 * (nat_for / lag(nat_for) - 1) / (year - lag(year))) %>% 
   ungroup %>% 
   mutate(region = reorder(factor(region), -change, FUN = max, na.rm = T))
+write_csv(fra_region, "data/fao-fra-region.csv")
 
 # plot natural forest loss
 fra_region %>% 
@@ -25,4 +26,4 @@ fra_region %>%
   geom_line() + 
   labs(x = "Year", y = "% change in natural forest cover / year") +
   scale_color_brewer(name = "Continent", palette = "Set1")
-ggsave('forest-change.png')
+ggsave('data/forest-change.png')
