@@ -14,6 +14,7 @@ fra_region <- fra %>%
          nat_change = 100 * (nat_for / lag(nat_for) - 1) / (year - lag(year))) %>% 
   ungroup %>% 
   mutate(region = reorder(factor(region), -change, FUN = max, na.rm = T))
+if (!dir.exists("output/")) dir.create("output/")
 write_csv(fra_region, "output/fao-fra-region.csv")
 
 # plot natural forest loss
