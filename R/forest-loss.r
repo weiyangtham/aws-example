@@ -1,7 +1,7 @@
 library(tidyverse)
 
 fra <- read_csv("data/fao-fra.csv", col_types = "ccidddd")
-
+glimpse(fra)
 # summarize by continent
 fra_region <- fra %>% 
   group_by(country) %>% 
